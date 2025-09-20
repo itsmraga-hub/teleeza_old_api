@@ -62,6 +62,7 @@ import java.time.LocalDateTime;
                                 @ColumnResult(name = "age_group", type = String.class),
                                 @ColumnResult(name = "target_group", type = Boolean.class),
                                 @ColumnResult(name = "target_groups", type = String.class),
+                                @ColumnResult(name = "reward_text", type = String.class),
                         }
                 )
         }
@@ -104,6 +105,7 @@ import java.time.LocalDateTime;
                 "    rewarded_video_ads.age_group,\n" +
                 "    rewarded_video_ads.target_group,\n" +
                 "    rewarded_video_ads.target_groups,\n" +
+                "    rewarded_video_ads.reward_text,\n" +
                 "    (CASE\n" +
                 "        WHEN rewarded_videos.count > 0  THEN 'true'\n" +
                 "        ELSE 'false'\n" +
@@ -167,6 +169,7 @@ import java.time.LocalDateTime;
                                 @ColumnResult(name = "age_group", type = String.class),
                                 @ColumnResult(name = "target_group", type = Boolean.class),
                                 @ColumnResult(name = "target_groups", type = String.class),
+                                @ColumnResult(name = "reward_text", type = String.class),
                         }
                 )
         }
@@ -208,6 +211,7 @@ import java.time.LocalDateTime;
                 "    rewarded_video_ads.age_group,\n" +
                 "    rewarded_video_ads.target_group,\n" +
                 "    rewarded_video_ads.target_groups,\n" +
+                "    rewarded_video_ads.reward_text,\n" +
                 "    (CASE\n" +
                 "        WHEN  rewarded_videos.count > 0 THEN 'true'\n" +
                 "        ELSE 'false'\n" +
@@ -314,6 +318,9 @@ public class RewardedVideoAds {
     private Boolean targetGroup;
     @Column(name = "target_groups")
     private String targetGroups;
+
+    @Column(name = "reward_text")
+    private String rewardText;
 
     public RewardedVideoAds(
             Long id,

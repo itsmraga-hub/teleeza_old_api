@@ -577,7 +577,7 @@ public class RewardService {
             sendVoucherMessage(customer.getFirstName(), rewardRequest.getAmount(), rewardedTextAd.get().getCompany(),
                     rewardedTextAd.get().getVoucherValidityEndDate().toString().split("T")[0],
                     voucher.getCode(), rewardedTextAd.get().getId(), voucher.getId(),
-                    rewardRequest.getPhoneNumber(), "t");
+                    rewardRequest.getPhoneNumber(), "t", rewardedTextAd.get().getRewardText());
             response.put("message", "Reward has been sent");
             response.put("statusCode", "0");
             rewardUser("Text", rewardedTextAd.get().getId());
@@ -741,7 +741,7 @@ public class RewardService {
             sendVoucherMessage(customer.getFirstName(), rewardRequest.getAmount(), rewardedVideoAds.get().getCompany(),
                     rewardedVideoAds.get().getVoucherValidityEndDate().toString().split("T")[0],
                     voucher.getCode(), rewardedVideoAds.get().getId(), voucher.getId(),
-                    rewardRequest.getPhoneNumber(), "v");
+                    rewardRequest.getPhoneNumber(), "v", rewardedVideoAds.get().getRewardText());
             response.put("message", "Reward has been sent");
             response.put("statusCode", "0");
             rewardUser("Text", rewardedVideoAds.get().getId());
@@ -905,7 +905,7 @@ public class RewardService {
             sendVoucherMessage(customer.getFirstName(), rewardRequest.getAmount(), rewardedAudioAds.get().getCompany(),
                     rewardedAudioAds.get().getVoucherValidityEndDate().toString().split("T")[0],
                     voucher.getCode(), rewardedAudioAds.get().getId(), voucher.getId(),
-                    rewardRequest.getPhoneNumber(), "a");
+                    rewardRequest.getPhoneNumber(), "a", rewardedAudioAds.get().getRewardText());
             response.put("message", "Reward has been sent");
             response.put("statusCode", "0");
             rewardUser("Text", rewardedAudioAds.get().getId());
@@ -954,9 +954,9 @@ public class RewardService {
         );
     }
 
-    void sendVoucherMessage(String firstName, BigDecimal amount, String company, String voucherValidityEndDate, String voucherCode, Long adID, Long voucherID, String phoneNumber, String adType) {
+    void sendVoucherMessage(String firstName, BigDecimal amount, String company, String voucherValidityEndDate, String voucherCode, Long adID, Long voucherID, String phoneNumber, String adType, String reward_text) {
         advantaSmsApi.sendSmsNotification(
-                "Congrats " + firstName + ", Get up to Ksh " + amount + " from " +
+                "Congrats " + firstName + ", " + reward_text + " from " +
                         company + " valid till " + voucherValidityEndDate
                         +". Click tam.co.ke?v=" + voucherCode + "&c=" + adType + "&a=" + adID
                         + "&d=" + voucherID + " to redeem.",

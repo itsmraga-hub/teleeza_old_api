@@ -54,7 +54,8 @@ import java.time.LocalDateTime;
 								@ColumnResult(name = "age_group", type = String.class),
 								@ColumnResult(name = "target_group", type = Boolean.class),
 								@ColumnResult(name = "target_groups", type = String.class),
-						}
+                                @ColumnResult(name = "reward_text", type = String.class),
+                        }
 				)
 		}
 )
@@ -97,6 +98,7 @@ import java.time.LocalDateTime;
 								@ColumnResult(name = "age_group", type = String.class),
 								@ColumnResult(name = "target_group", type = Boolean.class),
 								@ColumnResult(name = "target_groups", type = String.class),
+								@ColumnResult(name = "reward_text", type = String.class),
 						}
 				)
 		}
@@ -136,6 +138,7 @@ import java.time.LocalDateTime;
 				"    sponsored_reward_ads.age_group,\n" +
 				"    sponsored_reward_ads.target_group,\n" +
 				"    sponsored_reward_ads.target_groups,\n" +
+				"    sponsored_reward_ads.reward_text,\n" +
 				"    (CASE\n" +
 				"        WHEN sponsored_reward_answers.count > 0 THEN 'true'\n" +
 				"        ELSE 'false'\n" +
@@ -255,4 +258,7 @@ public class SponsoredRewardAds{
 	private int amountPaidOut;
 	@Column(name = "opinion_question")
 	private String opinionQuestion;
+
+    @Column(name = "reward_text")
+    private String rewardText;
 }

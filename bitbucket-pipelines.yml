@@ -1,0 +1,50 @@
+image: maven:3.3.9
+
+pipelines:
+  branches:
+    develop:
+      - step:
+          name: Deployment to Test Environment
+          deployment: test
+          script:
+            # - echo 'Package the jar file'
+            # - mv src/main/resources/application-test.yml src/main/resources/application-prod.yml
+            # - mvn clean package
+            # - echo 'Copying the jar file to our test remote instance'
+            # - scp -v -o stricthostkeychecking=no -r target/campaign-0.0.1-SNAPSHOT.jar ubuntu@18.221.231.46:/home/ubuntu/deployments/campaign-backend
+            # - echo 'Using ssh to execute the deployment script'
+            ## - ssh -i backend-test.pem 18.221.231.46 'cd /home/ubuntu/deployments/campaign-backend/ && bash deployment.sh restart'
+            - echo 'Package the jar file'
+            - mv src/main/resources/application-test.yml src/main/resources/application-prod.yml
+            - mvn clean package
+            - echo 'Decode private key'
+            - touch access_key.pem
+            - echo $SSH_KEY3
+            - (umask  077 ; echo "$SSH_KEY3" | base64 --decode -i > access_key.pem)
+            - chmod 400 access_key.pem
+            - ls -1 target/
+            - echo 'Copying the jar file to the remote instance'
+            - scp -v -i access_key.pem target/teleeza-2.0-wallet.jar ubuntu@ec2-18-219-15-147.us-east-2.compute.amazonaws.com:/home/ubuntu/wallet_deployments
+            - echo 'Using ssh to execute the deployment script'
+            - ssh ubuntu@ec2-18-219-15-147.us-east-2.compute.amazonaws.com 'cd /home/ubuntu/wallet_deployments/ && sudo bash deployment.sh restart'
+
+    main:
+      - step:
+          name: Deployment to Live Environment
+          deployment: test
+          script:
+            - echo 'Package the jar file'
+            - mv src/main/resources/application-prod.yml src/main/resources/application.yml
+            - mvn clean package
+            - echo 'Decode private key'
+            - touch access_key.pem
+            - echo $SSH_KEY_PROD
+            - (umask  077 ; echo "$SSH_KEY_PROD" | base64 --decode -i > access_key.pem)
+            - chmod 400 access_key.pem
+            - ls -1 target/
+            - echo 'Copying the jar file to the remote instance'
+            - scp -v -i access_key.pem target/teleeza-2.0-wallet.jar ubuntu@ec2-3-142-189-205.us-east-2.compute.amazonaws.com:/home/ubuntu/wallet_deployments
+            - echo 'Using ssh to execute the deployment script'
+            - ssh ubuntu@ec2-3-142-189-205.us-east-2.compute.amazonaws.com 'cd /home/ubuntu/wallet_deployments/ && sudo bash deployment.sh restart'
+
+            

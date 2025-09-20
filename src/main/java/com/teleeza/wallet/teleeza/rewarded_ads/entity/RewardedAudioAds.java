@@ -64,6 +64,7 @@ import java.util.Date;
                                 @ColumnResult(name = "age_group", type = String.class),
                                 @ColumnResult(name = "target_group", type = Boolean.class),
                                 @ColumnResult(name = "target_groups", type = String.class),
+                                @ColumnResult(name = "reward_text", type = String.class),
                         }
                 )
         }
@@ -106,6 +107,7 @@ import java.util.Date;
                 "    rewarded_audio_ads.age_group,\n" +
                 "    rewarded_audio_ads.target_group,\n" +
                 "    rewarded_audio_ads.target_groups,\n" +
+                "    rewarded_audio_ads.reward_text,\n" +
                 "    (CASE\n" +
                 "        WHEN rewarded_audio.count > 0 THEN 'true'\n" +
                 "        ELSE 'false'\n" +
@@ -170,6 +172,7 @@ import java.util.Date;
                                 @ColumnResult(name = "age_group", type = String.class),
                                 @ColumnResult(name = "target_group", type = Boolean.class),
                                 @ColumnResult(name = "target_groups", type = String.class),
+                                @ColumnResult(name = "reward_text", type = String.class),
                         }
                 )
         }
@@ -212,6 +215,7 @@ import java.util.Date;
                 "    rewarded_audio_ads.age_group,\n" +
                 "    rewarded_audio_ads.target_group,\n" +
                 "    rewarded_audio_ads.target_groups,\n" +
+                "    rewarded_audio_ads.reward_text,\n" +
                 "    (CASE\n" +
                 "        WHEN rewarded_audio.count > 0 THEN 'true'\n" +
                 "        ELSE 'false'\n" +
@@ -321,6 +325,9 @@ public class RewardedAudioAds {
     private Boolean targetGroup;
     @Column(name = "target_groups")
     private String targetGroups;
+
+    @Column(name = "reward_text")
+    private String rewardText;
 
     public RewardedAudioAds(Long id, String title, String description, String filePath, String image) {
         this.id = id;

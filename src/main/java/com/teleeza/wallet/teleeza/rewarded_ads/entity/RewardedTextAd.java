@@ -72,6 +72,7 @@ import java.time.LocalDateTime;
                                 @ColumnResult(name = "age_group", type = String.class),
                                 @ColumnResult(name = "target_group", type = Boolean.class),
                                 @ColumnResult(name = "target_groups", type = String.class),
+                                @ColumnResult(name = "reward_text", type = String.class),
                         }
                 )
         }
@@ -118,6 +119,7 @@ import java.time.LocalDateTime;
                 "    rewarded_text_ads.age_group,\n" +
                 "    rewarded_text_ads.target_group,\n" +
                 "    rewarded_text_ads.target_groups,\n" +
+                "    rewarded_text_ads.reward_text,\n" +
                 "    (CASE\n" +
                 "        WHEN rewarded_texts.count > 0 THEN 'true'\n" +
                 "        ELSE 'false'\n" +
@@ -186,6 +188,7 @@ import java.time.LocalDateTime;
                                 @ColumnResult(name = "age_group", type = String.class),
                                 @ColumnResult(name = "target_group", type = Boolean.class),
                                 @ColumnResult(name = "target_groups", type = String.class),
+                                @ColumnResult(name = "reward_text", type = String.class),
                         }
                 )
         }
@@ -232,6 +235,7 @@ import java.time.LocalDateTime;
                 "    rewarded_text_ads.age_group,\n" +
                 "    rewarded_text_ads.target_group,\n" +
                 "    rewarded_text_ads.target_groups,\n" +
+                "    rewarded_text_ads.reward_text,\n" +
                 "    (CASE\n" +
                 "        WHEN rewarded_texts.count > 0 THEN 'true'\n" +
                 "        ELSE 'false'\n" +
@@ -354,6 +358,10 @@ public class RewardedTextAd implements Serializable {
     private boolean targetGroup;
     @Column(name = "target_groups")
     private String targetGroups;
+
+    @Column(name = "reward_text")
+    private String rewardText;
+
     public RewardedTextAd(Long id, String title, String description, String image, LocalDate startDate, LocalDate endDate) {
         this.id = id;
         this.title = title;

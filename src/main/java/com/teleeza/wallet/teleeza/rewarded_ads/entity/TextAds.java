@@ -62,6 +62,7 @@ public class TextAds {
     private String age_group;
     private boolean target_group;
     private String target_groups;
+    private String reward_text;
     public TextAds(Long id, String title,
                    String description,
                    String image, String question,
@@ -86,9 +87,9 @@ public class TextAds {
                    String location,
                    String gender,
                    String age_group,
-                     boolean target_group,
-                     String target_groups
-
+                   boolean target_group,
+                   String target_groups,
+                   String reward_text
                    ) {
         this.id = id;
         this.title = title;
@@ -129,6 +130,7 @@ public class TextAds {
         this.age_group = age_group;
         this.target_group = target_group;
         this.target_groups = target_groups;
+        this.reward_text = reward_text;
     }
 
     public TextAds() {

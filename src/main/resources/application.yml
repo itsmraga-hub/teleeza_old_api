@@ -1,0 +1,275 @@
+server:
+  port: 8002
+  error:
+    include-message: always
+  tomcat:
+    threads:
+      max: 200
+    connection-timeout: 1000
+
+advanta:
+  sms:
+    apiKey: b19a45d9e8f7a028d9afb7db0ec2cbe8
+    partnerID: 4555
+    shortCode: TELEEZA
+    baseUrl: https://quicksms.advantasms.com/api/services/sendotp/
+
+kokotoa:
+  callback:
+    kokotoaApiEndpoint: https://kokotoa.teleeza.africa/api/callback
+    prodBaseUrl: https://portal-kokotoa.teleeza.africa/api/callback
+
+teleeza:
+  app:
+    baseImgUrl: wallet.teleeza.africa
+meliora:
+  app:
+    baseUrlEndpoint: http://35.172.71.65:9297/api/cms/subscription/offer
+    productId: 186c5200-3650-4023-af63-4328f03ba784
+
+sasapay:
+  wallet:
+    client-id: 1prmnrTNZSpUCDvsmqbhsYQAH6vgV8T02dFWvlQ1
+    client-secret: gdtK5Mz8ANm3ICjEJlCFXTtsmqccWQSRUB8ocj1ymSdE3cRUtJiJd2vFpf2ZNJRPUrrvZy2D0oOnxhSbfEsUBwZ7A8gjXf4wWXd8m5NdSq1zhaqEYFzmEtOM6dzpPDgF
+    merchantToBeneficiarryCliendID: 5HHGjH79NyAkvfBovp4d8xDR6NHNgjWA2nAYuMmQ
+    merchantToBeneficiarrySecret: VYCMqAtjVFqNBWCkF3DKWF1d8lstW19wjdEyXx7CSIEkO5uOO56nOHr9jZXHqvjnSqtWWSaODzS9CB9C1RsWQt1INDzCpFMC4qQtkwev7oJPRG5LB6OUnctEIX24TJ7j
+    oauth-endpoint: https://api.sasapay.app/api/v1/waas/auth/token/
+    grant-type: client_credentials
+    request-payment-endpoint: https://api.sasapay.app/api/v1/payments/request-payment/
+    kyc-oauth-endpoint: https://api.sasapay.app/api/v1/aml/api/admins/login
+    register-c2b-url-endpoint: https://api.sasapay.app/api/v1/payments/register-confirmation-url/
+    processPaymentEndpoint: https://api.sasapay.app/api/v1/payments/process-payment/
+
+    beneficiaryOnBoardingEndpoint: https://api.sasapay.app/api/v1/waas/customer-registration/
+    customerRegistrationConfirmationEndpoint: https://api.sasapay.app/api/v1/waas/customer-registration-confirmation/
+    loadCustomerWalletEndpoint: https://api.sasapay.app/api/v1/waas/customers/load-wallet/request/
+    customerToCustomerTransferEndpoint: https://api.sasapay.app/api/v1/waas/customer-to-customer-transfer/
+    customerToMobileMoneyEndpoint: https://api.sasapay.app/api/v1/waas/customer-to-mobile-money-transfer/
+    beneficiaryToMerchantEndpoint: https://api.sasapay.app/api/v1/waas/customers/pay-bill/
+    billPaymentEndpoint: https://api.sasapay.app/api/v1/waas/customers/lipa-bill/
+    lipaTillEndpoint: https://api.sasapay.app/api/v1/waas/customers/lipa-till/
+    cashoutEndpoint: https://api.sasapay.app/api/v1/waas/customers/cash-out/
+    bankTransferEndpoint: https://api.sasapay.app/api/v1/waas/customer-to-bank-transfer/
+    buyAirtimeEndpoint: https://api.sasapay.app/api/v1/waas/utilities/direct-airtime/
+    buyKplcTokensEndpoint: https://api.sasapay.app/api/v1/waas/utilities/kplc-token/
+    lipaFareEndpoint: https://api.sasapay.app/api/v1/waas/customers/lipa-fare/
+    lipaTVEndpoint: https://api.sasapay.app/api/v1/waas/utilities/pay-tv/
+    postPaidEndpoint: https://api.sasapay.app/api/v1/waas/utilities/postpaid-bill-payments/
+    merchantBalance-endpoint: https://api.sasapay.app/api/v1/payments/check-balance
+    kycUpdateEndpoint: https://api.sasapay.app/api/v1/waas/beneficiary/update/
+
+    validationUrlEndpoint: https://api.sasapay.app/api/v1/payments/register-validation-url/
+    b2b-transaction-endpoint: https://api.sasapay.app/api/v1/payments/b2b/
+    confirmationUrlEndpoint: https://api.sasapay.app/api/v1/payments/register-confirmation-url/
+    callback-url: https://teleeza.com/callback/waas/v1/v1-request/
+    verifyTransactionEndPoint: https://api.sasapay.app/api/v1/transactions/verify/
+    merchant-code: 669994
+    #    callback urls
+    subscriptionCallback: https://e387-197-248-98-3.eu.ngrok.io/v1/teleeza-wallet/subscription-validation
+    mobileTransferCallback: https://e387-197-248-98-3.eu.ngrok.io/v1/teleeza-wallet/mobilemoney-transfer-validation
+    bankTransferValidation: https://e387-197-248-98-3.eu.ngrok.io/v1/teleeza-wallet/bank-transfer-validation
+    payBillsCallBack: https://e387-197-248-98-3.eu.ngrok.io/v1/teleeza-wallet/paybills-validation
+    lipaTillsCallback: https://e387-197-248-98-3.eu.ngrok.io/v1/teleeza-wallet/till-validation
+    lipaFareCallBack: https://e387-197-248-98-3.eu.ngrok.io/v1/teleeza-wallet/lip-fare-validation
+    c2cCallBack: https://bf52-197-248-98-3.eu.ngrok.io/v1/teleeza-wallet/c2c-validation
+    loadWalletCallBack: https://e387-197-248-98-3.eu.ngrok.io/v1/teleeza-wallet/validation
+    kplcCallBack: https://e387-197-248-98-3.eu.ngrok.io/v1/teleeza-wallet/kplc-validation
+    tvPaymentCallBack: https://e387-197-248-98-3.eu.ngrok.io/v1/teleeza-wallet/tv-validation
+    airtimeCallBack: https://e387-197-248-98-3.eu.ngrok.io/v1/teleeza-wallet/airtime-validation
+    postPaidValidation: https://e387-197-248-98-3.eu.ngrok.io/v1/teleeza-wallet/postpaid-validation
+    merchantToBeneficiarryCallBack: https://e387-197-248-98-3.eu.ngrok.io/v1/merchant-to-beneficiarry/validation
+    merchantToBeneficaryDiscountCallBack: https://e387-197-248-98-3.eu.ngrok.io/v1/merchant-to-beneficiarry/subscription-discount/validation
+    merchantToBeneficaryCashbackCallBack: https://e387-197-248-98-3.eu.ngrok.io/v1/merchant-to-beneficiarry/subscription-cashback/validation
+    merchantToBeneficaryResidualCallBack: https://d9fe-197-248-98-3.eu.ngrok.io/v1/merchant-to-beneficiarry/residual-income/validation
+    subscriptionExtensionValidation: https://d9fe-197-248-98-3.eu.ngrok.io/v1/teleeza-wallet/subscription-extension-validation
+    freemiumValidationCallBack: https://d9fe-197-248-98-3.eu.ngrok.io/v1/teleeza-wallet/freemium-validation
+    cashoutValidationCallBack: https://d9fe-197-248-98-3.eu.ngrok.io/v1/teleeza-wallet/cashout-validation
+    registrationCallBack: https://d9fe-197-248-98-3.eu.ngrok.io/v1/teleeza-wallet/registration-callback
+
+
+spring:
+  profiles:
+    active: default
+  mail:
+    host: teleeza.africacd D://
+    port: 995
+    username: no-reply@teleeza.africa
+    password: Teleeza@20!20
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+          socketFactory:
+            port: 465
+            class: javax.net.ssl.SSLSocketFactory
+
+  servlet:
+    multipart:
+      enabled: true
+      file-size-threshold: 16MB
+      max-file-size: 16MB
+      max-request-size: 16MB
+      resolve-lazily: true
+  security:
+    enable:
+      csrf: false
+    user:
+      name: Teleeza
+      password: d53b0dcb88cdf182a9817737e99ea833869fc3e9
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+
+  datasource:
+#    url: jdbc:mysql://localhost:3306/campaigns?useSSL=false&allowPublicKeyRetrieval=true&useLegacyDatetimeCode=false&serverTimezone=Africa/Nairobi
+#    username: root
+#    password: password
+#    url: jdbc:mysql://teleezav2.ctml0bfizgg3.us-east-2.rds.amazonaws.com:3306/teleezav2?useSSL=false&serverTimezone=Africa/Nairobi
+#    username: wallet
+#    password: Afric@2023Ltd!
+    url: jdbc:mysql://database-1.ctml0bfizgg3.us-east-2.rds.amazonaws.com:3306/campaigns?useSSL=false&serverTimezone=Africa/Nairobi
+    username: campaign
+    password: campaign
+    tomcat:
+      test-while-idle: false
+      validation-query: SELECT 1
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  jpa:
+    show-sql: true
+    database-platform: org.hibernate.dialect.MySQLInnoDBDialect
+    hibernate:
+      ddl-auto: update
+
+    properties:
+      hibernate:
+        jdbc:
+          time_zone: Africa/Nairobi
+        format_sql: true
+        dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+  pid:
+    fail-on-write-error: true
+    file: pid/application.pid
+
+  file:
+    name: "wallet.log"
+
+#  file:
+#    path:
+#    name:
+#  file:
+#    path: /home/ubuntu/wallet_deployments/logs
+
+cloud:
+  aws:
+    credentials:
+      access-key: AKIAWQ63TTT7NWIPJMMQ
+      secret-key: 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
+    region:
+      static: us-east-2
+    stack:
+      auto: false
+application:
+  bucket:
+    name: teleeza-pilot
+    s3url: s3.us-east-2.amazonaws.com
+
+image:
+  folder: images
+app:
+  jwt-secret: JWTSecretKey
+  jwt-expiration-milliseconds: 3600000
+  firebase-configuration-file: fcm/teleezaafricalimited-firebase-adminsdk-g08mh-232cc609d3.json
+#management:
+#  endpoint:
+#    gateway:
+#      enabled: true
+#
+#  endpoints:
+#    web:
+#      exposure:
+#        include: gateway
+resilience4j:
+  bulkhead:
+    instances:
+      statService:
+        max-concurrent-calls: 200
+
+
+mpesa:
+  daraja:
+    consumerKey: tQlXzVZzFp100YlIivvBajpPWANBIUcA
+    consumerSecret: 0GM2imPMUd0hCuXa
+
+    grantType: client_credentials
+    oauthEndpoint: https://api.safaricom.co.ke/oauth/v1/generate
+    registerUlrEndPoint: https://api.safaricom.co.ke/mpesa/c2b/v2/registerurl
+    simulateC2BTransactionEndpoint: https://api.safaricom.co.ke/mpesa/c2b/v2/registerurl
+    shortCode: 4075157
+    stkPushShortCode: 4075157
+    stkPassKey: c09f82ef4c1eb0eb6a3bd4e79fb582465516c366891e20934986aa65f0ef6d5d
+    jiinueCallBack: https://pyramid.teleeza.africa/pilot/callback.php
+    stkPushRequestUrl: https://api.safaricom.co.ke/mpesa/stkpush/v1/processrequest
+    confirmationURL: https://ae43-197-248-98-3.eu.ngrok.io/mobile-money/confirmation
+    validationURL: https://ae43-197-248-98-3.eu.ngrok.io/mobile-money/validation
+    responseType: Completed
+    #    b2c
+    initiatorPassword: NRIzr6/fvaVQrZ8g/+H7lu4km4Wfs4r4XLjX+BGSiR5KuyaDegwZk4xuTJTwgFm7lEAGQ8D7zybvdhGlMxQn9GU2E7VZtcEwCBHineKIxL7JNjAvZaweu4LUopRimCqNufXi+S7cavKMEnhjT0RjsF2eB0quxyhz8ZNKvY0BTu9jo80R8l42V14kU5pVoxgi272Pge7lDPf9mg19CXX4qna+Wzwgje5UsxmajUatFWM39PlYxCsXdzRJKzjpJ2MX22G6Q2bqDNPnqOcu4t3YDNC30vbJq4wpA2MjTiYy4FmQt7lfe3M3Ah0DdXnEHSidZhaM7OK2oGcCGt6yVISjTA==
+    initiatorName: GEORGE
+    b2cConsumerKey: rClXBXNcAB4xGoBuLoF1YNWsPbOfYjlB
+    b2cConsumerSecret: doD9oU3x1GLuKzAo
+    b2cShortCode: 3029499
+    b2cTransactionEndpoint: https://api.safaricom.co.ke/mpesa/b2c/v1/paymentrequest
+    b2cResultUrl: https://6beb-197-248-98-3.eu.ngrok.io/mobile-money/transaction-result
+    rewardedAdsResultUrl: https://6beb-197-248-98-3.eu.ngrok.io/v1/teleeza/rewarded/rewarded-ads-transaction-result
+    merchantPaymentResultUrl: https://6beb-197-248-98-3.eu.ngrok.io/v1/teleeza/rewarded/merchant-payment-validation
+    b2c-queue-timeout-url: https://6beb-197-248-98-3.eu.ngrok.io/mobile-money/transaction-result
+    checkAccountBalanceUrl: https://api.safaricom.co.ke/mpesa/accountbalance/v1/query
+
+    referral-url: https://pyramid.teleeza.africa/pilot/
+
+# TopUps API config
+#topups:
+#  api:
+#    airtimeApiKey: fd3fe90d07a0543a75bf075c1c977508
+#    mobileApiKey: a5c3868dac290b23a0d4e24cefc6f297
+#    topupBaseUrl: https://app.topups.co.ke/api/send_airtime
+
+# TopUps API config
+#tupay:
+#  api:
+#    airtimeApiKey: fd3fe90d07a0543a75bf075c1c977508
+#    mobileApiKey: a5c3868dac290b23a0d4e24cefc6f297
+#    baseUrl: https://api.tupay.africa:8888
+
+tupay:
+  api:
+    username: 2ff7225c-8ff1-549a-A52d-Daac65520a1a
+    password: EoshVQvP5_z6RztKz1Zq
+    authUrl: https://api.tupay.africa:8888/v1/b2b/token
+    statusUrl: https://api.tupay.africa:8888/v1/b2b/status/RBHJWR123456
+    balanceUrl: https://api.tupay.africa:8888/v1/b2b/balance
+    airtimeUrl: https://api.tupay.africa:8888/v1/b2b/order/safaricom
+    orderUrl: https://api.tupay.africa:8888/v1/b2b/order/airtime
+
+#Bima API config
+bima:
+  api:
+    token: eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0ZWxlZXphIiwiYXV0aCI6IlJPTEVfQVBJIiwiZXhwIjoyNTI0Njk0NDAwfQ.75sgA-b6j0n-_57Ltumr6xr_pFltVPUHGNn8AHqA_TuewQJ_kUFLHbYI2wEyPqAgYnQbVxufUO6-5fRxQDpstA
+    productPackId: 17345001
+    productId: 17344801
+#    bimaEndpoint: https://bima.teleeza.africa/api/v2/create-policy
+    bimaEndpoint: https://test.turaco.insure/api/v1/policies
+    bimaGetPolicyEndpoint: https://test.turaco.insure/api/v1/policies
+    externalRef: teleeza-partner-ref
+
+
+
+
+
+springdoc:
+  swagger-ui:
+    path: /swagger/index.html
+

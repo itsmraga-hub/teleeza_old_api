@@ -1,0 +1,163 @@
+{
+  "properties": [
+    {
+      "name": "sasapay.spring.datasource.username",
+      "type": "java.lang.String",
+      "description": "Description for sasapay.spring.datasource.username."
+    },
+    {
+      "name": "sasapay.spring.datasource.url",
+      "type": "java.lang.String",
+      "description": "Description for sasapay.spring.datasource.url."
+    },
+    {
+      "name": "sasapay.wallet.beneficiaryToMerchantEndpoint",
+      "type": "java.lang.String",
+      "description": "Description for sasapay.wallet.beneficiaryToMerchantEndpoint."
+    },
+    {
+      "name": "sasapay.wallet.billPaymentEndpoint",
+      "type": "java.lang.String",
+      "description": "Description for sasapay.wallet.billPaymentEndpoint."
+    },
+    {
+      "name": "sasapay.wallet.walletCallBack",
+      "type": "java.lang.String",
+      "description": "Description for sasapay.wallet.walletCallBack."
+    },
+    {
+      "name": "sasapay.wallet.cashoutEndpoint",
+      "type": "java.lang.String",
+      "description": "Description for sasapay.wallet.cashoutEndpoint."
+    },
+    {
+      "name": "sasapay.wallet.bankTransferEndpooint",
+      "type": "java.lang.String",
+      "description": "Description for sasapay.wallet.bankTransferEndpooint."
+    },
+    {
+      "name": "teleeza.app.jwtSecret",
+      "type": "java.lang.String",
+      "description": "Description for teleeza.app.jwtSecret."
+    },
+    {
+      "name": "teleeza.app.jwtExpirationMs",
+      "type": "java.lang.String",
+      "description": "Description for teleeza.app.jwtExpirationMs."
+    },
+    {
+      "name": "sasapay.wallet.buyAirtimeEndpoint",
+      "type": "java.lang.String",
+      "description": "Description for sasapay.wallet.buyAirtimeEndpoint."
+    },
+    {
+      "name": "sasapay.wallet.lipaTV",
+      "type": "java.lang.String",
+      "description": "Description for sasapay.wallet.lipaTV."
+    },
+    {
+      "name": "teleeza.kokotoa.kokotoaEndpoint",
+      "type": "java.lang.String",
+      "description": "Description for teleeza.kokotoa.kokotoaEndpoint."
+    },
+    {
+      "name": "sasapay.wallet.mobileTransferCallback",
+      "type": "java.lang.String",
+      "description": "Description for sasapay.wallet.mobileTransferCallback."
+    },
+    {
+      "name": "sasapay.wallet.bankTransferValidation",
+      "type": "java.lang.String",
+      "description": "Description for sasapay.wallet.bankTransferValidation."
+    },
+    {
+      "name": "sasapay.wallet.payBillsCallBack",
+      "type": "java.lang.String",
+      "description": "Description for sasapay.wallet.payBillsCallBack."
+    },
+    {
+      "name": "sasapay.wallet.lipaTillsCallback",
+      "type": "java.lang.String",
+      "description": "Description for sasapay.wallet.lipaTillsCallback."
+    },
+    {
+      "name": "sasapay.wallet.lipaFareCallBack",
+      "type": "java.lang.String",
+      "description": "Description for sasapay.wallet.lipaFareCallBack."
+    },
+    {
+      "name": "sasapay.wallet.loadWalletCallBack",
+      "type": "java.lang.String",
+      "description": "Description for sasapay.wallet.loadWalletCallBack."
+    },
+    {
+      "name": "sasapay.wallet.kplcCallBack",
+      "type": "java.lang.String",
+      "description": "Description for sasapay.wallet.kplcCallBack."
+    },
+    {
+      "name": "sasapay.wallet.tvPaymentCallBack",
+      "type": "java.lang.String",
+      "description": "Description for sasapay.wallet.tvPaymentCallBack."
+    },
+    {
+      "name": "sasapay.wallet.airtimeCallBack",
+      "type": "java.lang.String",
+      "description": "Description for sasapay.wallet.airtimeCallBack."
+    },
+    {
+      "name": "sasapay.wallet.postPaidValidation",
+      "type": "java.lang.String",
+      "description": "Description for sasapay.wallet.postPaidValidation."
+    },
+    {
+      "name": "sasapay.wallet.cashoutValidationCallBack",
+      "type": "java.lang.String",
+      "description": "Description for sasapay.wallet.cashoutValidationCallBack."
+    },
+    {
+      "name": "sasapay.wallet.merchantToBeneficaryCashbackCallBack",
+      "type": "java.lang.String",
+      "description": "Description for sasapay.wallet.merchantToBeneficaryCashbackCallBack."
+    },
+    {
+      "name": "sasapay.wallet.merchantToBeneficaryResidualCallBack",
+      "type": "java.lang.String",
+      "description": "Description for sasapay.wallet.merchantToBeneficaryResidualCallBack."
+    },
+    {
+      "name": "mpesa.daraja.commandId",
+      "type": "java.lang.String",
+      "description": "Description for mpesa.daraja.commandId."
+    },
+    {
+      "name": "mpesa.daraja.checkAccountBalanceUrl",
+      "type": "java.lang.String",
+      "description": "Description for mpesa.daraja.checkAccountBalanceUrl."
+    },
+    {
+      "name": "sasapay.wallet.registrationCallBack",
+      "type": "java.lang.String",
+      "description": "Description for sasapay.wallet.registrationCallBack."
+    },
+    {
+      "name": "mpesa.daraja.merchantPaymentResultUrl",
+      "type": "java.lang.String",
+      "description": "Description for mpesa.daraja.merchantPaymentResultUrl."
+    },
+    {
+      "name": "topups.api.airtimeApiKey",
+      "type": "java.lang.String",
+      "description": "Description for topups.api.airtimeApiKey."
+    },
+    {
+      "name": "topups.api.mobileApiKey",
+      "type": "java.lang.String",
+      "description": "Description for topups.api.mobileApiKey."
+    },
+    {
+      "name": "topups.api.topUpBaseUrl",
+      "type": "java.lang.String",
+      "description": "Description for topups.api.topUpBaseUrl."
+    }
+  ] }
