@@ -245,7 +245,7 @@ public class RewardService {
                 sendMessage(customer.getFirstName(), rewardRequest.getAmount(), sponsoredRewardAds.get().getCompany(),
                         sponsoredRewardAds.get().getVoucherValidityEndDate().toString().substring(0, 11),
                         voucher.getCode(), sponsoredRewardAds.get().getId(), voucher.getId(), sponsoredRewardAds.get().getDiscountOff(),
-                        rewardRequest.getPhoneNumber(), "s");
+                        rewardRequest.getPhoneNumber(), "s", sponsoredRewardAds.get().getRewardText());
                 response.put("message", "Reward has been sent");
                 response.put("statusCode", "0");
                 rewardUser("Text", sponsoredRewardAds.get().getId());
@@ -933,11 +933,11 @@ public class RewardService {
     }
 
 
-    void sendMessage(String firstName, BigDecimal amount, String company, String voucherValidityEndDate, String voucherCode, Long adID, Long voucherID, String discount_off, String phoneNumber, String adType) {
+    void sendMessage(String firstName, BigDecimal amount, String company, String voucherValidityEndDate, String voucherCode, Long adID, Long voucherID, String discount_off, String phoneNumber, String adType, String reward_text) {
         if (discount_off.contains("Ksh")) {
 
             advantaSmsApi.sendSmsNotification(
-                    "Congrats " + firstName + ", Get up to Ksh " + amount + " from " +
+                    "Congrats " + firstName + ", " + reward_text + " from " +
                             company + " valid till " + voucherValidityEndDate
                             +". Click tam.co.ke?v=" + voucherCode + "&c=" + adType + "&a=" + adID
                             + "&d=" + voucherID + " to redeem.",
