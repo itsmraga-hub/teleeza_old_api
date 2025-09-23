@@ -574,10 +574,19 @@ public class RewardService {
                         rewardRequest.getPhoneNumber()
                 );*/
             }
-            sendVoucherMessage(customer.getFirstName(), rewardRequest.getAmount(), rewardedTextAd.get().getCompany(),
-                    rewardedTextAd.get().getVoucherValidityEndDate().toString().split("T")[0],
-                    voucher.getCode(), rewardedTextAd.get().getId(), voucher.getId(),
-                    rewardRequest.getPhoneNumber(), "t", rewardedTextAd.get().getRewardText());
+            if (rewardedTextAd.get().getIndustry().startsWith("Gaming")) {
+                sendCashMessage(customer.getFirstName(), rewardRequest.getAmount(),
+                        rewardedTextAd.get().getCompany(), rewardedTextAd.get().getCallToActionUrl(), rewardRequest.getPhoneNumber());
+            } else {
+                sendVoucherMessage(customer.getFirstName(), rewardRequest.getAmount(), rewardedTextAd.get().getCompany(),
+                        rewardedTextAd.get().getVoucherValidityEndDate().toString().split("T")[0],
+                        voucher.getCode(), rewardedTextAd.get().getId(), voucher.getId(),
+                        rewardRequest.getPhoneNumber(), "t", rewardedTextAd.get().getRewardText());
+            }
+//            sendVoucherMessage(customer.getFirstName(), rewardRequest.getAmount(), rewardedTextAd.get().getCompany(),
+//                    rewardedTextAd.get().getVoucherValidityEndDate().toString().split("T")[0],
+//                    voucher.getCode(), rewardedTextAd.get().getId(), voucher.getId(),
+//                    rewardRequest.getPhoneNumber(), "t", rewardedTextAd.get().getRewardText());
             response.put("message", "Reward has been sent");
             response.put("statusCode", "0");
             rewardUser("Text", rewardedTextAd.get().getId());
@@ -738,10 +747,20 @@ public class RewardService {
                         rewardRequest.getPhoneNumber()
                 );*/
             }
-            sendVoucherMessage(customer.getFirstName(), rewardRequest.getAmount(), rewardedVideoAds.get().getCompany(),
-                    rewardedVideoAds.get().getVoucherValidityEndDate().toString().split("T")[0],
-                    voucher.getCode(), rewardedVideoAds.get().getId(), voucher.getId(),
-                    rewardRequest.getPhoneNumber(), "v", rewardedVideoAds.get().getRewardText());
+
+            if (rewardedVideoAds.get().getIndustry().startsWith("Gaming")) {
+                sendCashMessage(customer.getFirstName(), rewardRequest.getAmount(),
+                        rewardedVideoAds.get().getCompany(), rewardedVideoAds.get().getCallToActionUrl(), rewardRequest.getPhoneNumber());
+            } else {
+                sendVoucherMessage(customer.getFirstName(), rewardRequest.getAmount(), rewardedVideoAds.get().getCompany(),
+                        rewardedVideoAds.get().getVoucherValidityEndDate().toString().split("T")[0],
+                        voucher.getCode(), rewardedVideoAds.get().getId(), voucher.getId(),
+                        rewardRequest.getPhoneNumber(), "v", rewardedVideoAds.get().getRewardText());
+            }
+//            sendVoucherMessage(customer.getFirstName(), rewardRequest.getAmount(), rewardedVideoAds.get().getCompany(),
+//                    rewardedVideoAds.get().getVoucherValidityEndDate().toString().split("T")[0],
+//                    voucher.getCode(), rewardedVideoAds.get().getId(), voucher.getId(),
+//                    rewardRequest.getPhoneNumber(), "v", rewardedVideoAds.get().getRewardText());
             response.put("message", "Reward has been sent");
             response.put("statusCode", "0");
             rewardUser("Text", rewardedVideoAds.get().getId());
@@ -902,10 +921,16 @@ public class RewardService {
                         voucher.getCode(), Long.parseLong(rewardRequest.getAdvertId()), voucher.getId(), rewardedAudioAds.get().getDescription(),
                         rewardRequest.getPhoneNumber());*/
             }
-            sendVoucherMessage(customer.getFirstName(), rewardRequest.getAmount(), rewardedAudioAds.get().getCompany(),
-                    rewardedAudioAds.get().getVoucherValidityEndDate().toString().split("T")[0],
-                    voucher.getCode(), rewardedAudioAds.get().getId(), voucher.getId(),
-                    rewardRequest.getPhoneNumber(), "a", rewardedAudioAds.get().getRewardText());
+            if (rewardedAudioAds.get().getIndustry().startsWith("Gaming")) {
+                sendCashMessage(customer.getFirstName(), rewardRequest.getAmount(),
+                        rewardedAudioAds.get().getCompany(), rewardedAudioAds.get().getCallToActionUrl(), rewardRequest.getPhoneNumber());
+            } else {
+                sendVoucherMessage(customer.getFirstName(), rewardRequest.getAmount(), rewardedAudioAds.get().getCompany(),
+                        rewardedAudioAds.get().getVoucherValidityEndDate().toString().split("T")[0],
+                        voucher.getCode(), rewardedAudioAds.get().getId(), voucher.getId(),
+                        rewardRequest.getPhoneNumber(), "a", rewardedAudioAds.get().getRewardText());
+            }
+
             response.put("message", "Reward has been sent");
             response.put("statusCode", "0");
             rewardUser("Text", rewardedAudioAds.get().getId());
@@ -964,11 +989,9 @@ public class RewardService {
         );
     }
 
-
     public void rewardUser(String adType, Long adID) {
         publishUser.publishMessage("RewardSuccess",adType + "," + adID);
     }
-
 
     public Map<String, String> checkAndSaveImageRewards(Optional<RewardedTextAd> rewardedTextAd,
                                                         RewardRequest rewardRequest,
@@ -979,11 +1002,9 @@ public class RewardService {
             rewardedTextAdRepository.save(rewardedTextAd.get());
             response.put("statusCode", "1");
             response.put("message", "Reward closed");
-            // return ResponseEntity.accepted().body(response);
             return response;
         }
 
-        // check if user has been rewarded already or not/
         TextRewards rewards = rewardedTextsRepository.findByPhoneAndAdvertId(
                 rewardRequest.getPhoneNumber(),
                 Long.parseLong(rewardRequest.getAdvertId())
