@@ -222,7 +222,7 @@ public class SponsoredRewardAds{
 	private String description;
 	@Column(name = "created_at")
 	private String createdAt;
-	private int industry;
+	private String industry;
 	private String title;
 	@Column(name = "ad_budget")
 	private int adBudget;

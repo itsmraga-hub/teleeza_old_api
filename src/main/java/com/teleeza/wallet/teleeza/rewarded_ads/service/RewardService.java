@@ -242,10 +242,15 @@ public class RewardService {
                                 + "&d=" + voucher.getId() + " to redeem.",
                         rewardRequest.getPhoneNumber()
                 );*/
-                sendMessage(customer.getFirstName(), rewardRequest.getAmount(), sponsoredRewardAds.get().getCompany(),
-                        sponsoredRewardAds.get().getVoucherValidityEndDate().toString().substring(0, 11),
-                        voucher.getCode(), sponsoredRewardAds.get().getId(), voucher.getId(), sponsoredRewardAds.get().getDiscountOff(),
-                        rewardRequest.getPhoneNumber(), "s", sponsoredRewardAds.get().getRewardText());
+                if (sponsoredRewardAds.get().getIndustry().equals("12")) {
+                    sendGamingVoucherMessage(customer.getFirstName(), sponsoredRewardAds.get().getCompany(),sponsoredRewardAds.get().getVoucherValidityEndDate().toString().split("T")[0],
+                            sponsoredRewardAds.get().getCallToActionUrl(), rewardRequest.getPhoneNumber(), sponsoredRewardAds.get().getRewardText());
+                } else {
+                    sendMessage(customer.getFirstName(), rewardRequest.getAmount(), sponsoredRewardAds.get().getCompany(),
+                            sponsoredRewardAds.get().getVoucherValidityEndDate().toString().substring(0, 11),
+                            voucher.getCode(), sponsoredRewardAds.get().getId(), voucher.getId(), sponsoredRewardAds.get().getDiscountOff(),
+                            rewardRequest.getPhoneNumber(), "s", sponsoredRewardAds.get().getRewardText());
+                }
                 response.put("message", "Reward has been sent");
                 response.put("statusCode", "0");
                 rewardUser("Text", sponsoredRewardAds.get().getId());
@@ -575,8 +580,8 @@ public class RewardService {
                 );*/
             }
             if (rewardedTextAd.get().getIndustry().startsWith("Gaming")) {
-                sendCashMessage(customer.getFirstName(), rewardRequest.getAmount(),
-                        rewardedTextAd.get().getCompany(), rewardedTextAd.get().getCallToActionUrl(), rewardRequest.getPhoneNumber());
+                sendGamingVoucherMessage(customer.getFirstName(), rewardedTextAd.get().getCompany(),rewardedTextAd.get().getVoucherValidityEndDate().toString().split("T")[0],
+                        rewardedTextAd.get().getCallToActionUrl(), rewardRequest.getPhoneNumber(), rewardedTextAd.get().getRewardText());
             } else {
                 sendVoucherMessage(customer.getFirstName(), rewardRequest.getAmount(), rewardedTextAd.get().getCompany(),
                         rewardedTextAd.get().getVoucherValidityEndDate().toString().split("T")[0],
@@ -749,8 +754,8 @@ public class RewardService {
             }
 
             if (rewardedVideoAds.get().getIndustry().startsWith("Gaming")) {
-                sendCashMessage(customer.getFirstName(), rewardRequest.getAmount(),
-                        rewardedVideoAds.get().getCompany(), rewardedVideoAds.get().getCallToActionUrl(), rewardRequest.getPhoneNumber());
+                sendGamingVoucherMessage(customer.getFirstName(), rewardedVideoAds.get().getCompany(),rewardedVideoAds.get().getVoucherValidityEndDate().toString().split("T")[0],
+                        rewardedVideoAds.get().getCallToActionUrl(), rewardRequest.getPhoneNumber(), rewardedVideoAds.get().getRewardText());
             } else {
                 sendVoucherMessage(customer.getFirstName(), rewardRequest.getAmount(), rewardedVideoAds.get().getCompany(),
                         rewardedVideoAds.get().getVoucherValidityEndDate().toString().split("T")[0],
@@ -922,8 +927,8 @@ public class RewardService {
                         rewardRequest.getPhoneNumber());*/
             }
             if (rewardedAudioAds.get().getIndustry().startsWith("Gaming")) {
-                sendCashMessage(customer.getFirstName(), rewardRequest.getAmount(),
-                        rewardedAudioAds.get().getCompany(), rewardedAudioAds.get().getCallToActionUrl(), rewardRequest.getPhoneNumber());
+                sendGamingVoucherMessage(customer.getFirstName(), rewardedAudioAds.get().getCompany(),rewardedAudioAds.get().getVoucherValidityEndDate().toString().split("T")[0],
+                        rewardedAudioAds.get().getCallToActionUrl(), rewardRequest.getPhoneNumber(), rewardedAudioAds.get().getRewardText());
             } else {
                 sendVoucherMessage(customer.getFirstName(), rewardRequest.getAmount(), rewardedAudioAds.get().getCompany(),
                         rewardedAudioAds.get().getVoucherValidityEndDate().toString().split("T")[0],
@@ -975,6 +980,15 @@ public class RewardService {
                         company + " valid till " + voucherValidityEndDate
                         +". Click tam.co.ke?v=" + voucherCode + "&c=" + adType + "&a=" + adID
                         + "&d=" + voucherID + " to redeem.",
+                phoneNumber
+        );
+    }
+
+    void sendGamingVoucherMessage(String firstName, String company, String voucherValidityEndDate, String callToActionUrl, String phoneNumber, String reward_text) {
+        advantaSmsApi.sendSmsNotification(
+                "Congrats " + firstName + ", Get " + reward_text + " from " +
+                        company + " valid till " + voucherValidityEndDate
+                        +". Click " + callToActionUrl +  " to redeem.",
                 phoneNumber
         );
     }
