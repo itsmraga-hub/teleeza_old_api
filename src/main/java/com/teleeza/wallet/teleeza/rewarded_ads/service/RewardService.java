@@ -243,12 +243,17 @@ public class RewardService {
                         rewardRequest.getPhoneNumber()
                 );*/
                 if (sponsoredRewardAds.get().getIndustry().equals("12")) {
-                    sendGamingVoucherMessage(customer.getFirstName(), sponsoredRewardAds.get().getCompany(),sponsoredRewardAds.get().getVoucherValidityEndDate().toString().split("T")[0],
+                    sendGamingVoucherMessage(customer.getFirstName(), sponsoredRewardAds.get().getCompany(), sponsoredRewardAds.get().getVoucherValidityEndDate().split("T")[0],
                             sponsoredRewardAds.get().getCallToActionUrl(), rewardRequest.getPhoneNumber(), sponsoredRewardAds.get().getRewardText());
                 } else {
-                    sendMessage(customer.getFirstName(), rewardRequest.getAmount(), sponsoredRewardAds.get().getCompany(),
-                            sponsoredRewardAds.get().getVoucherValidityEndDate().toString().substring(0, 11),
-                            voucher.getCode(), sponsoredRewardAds.get().getId(), voucher.getId(), sponsoredRewardAds.get().getDiscountOff(),
+//                    sendVoucherMessage(customer.getFirstName(), rewardRequest.getAmount(), sponsoredRewardAds.get().getCompany(),
+//                            sponsoredRewardAds.get().getVoucherValidityEndDate().split("T")[0],
+//                            voucher.getCode(), sponsoredRewardAds.get().getId(), voucher.getId(), sponsoredRewardAds.get().getDiscountOff(),
+//                            rewardRequest.getPhoneNumber(), "s", sponsoredRewardAds.get().getRewardText());
+
+                    sendVoucherMessage(customer.getFirstName(), rewardRequest.getAmount(), sponsoredRewardAds.get().getCompany(),
+                            sponsoredRewardAds.get().getVoucherValidityEndDate().split("T")[0],
+                            voucher.getCode(), sponsoredRewardAds.get().getId(), voucher.getId(),
                             rewardRequest.getPhoneNumber(), "s", sponsoredRewardAds.get().getRewardText());
                 }
                 response.put("message", "Reward has been sent");
