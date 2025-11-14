@@ -243,7 +243,7 @@ public class RewardService {
                         rewardRequest.getPhoneNumber()
                 );*/
                 if (sponsoredRewardAds.get().getIndustry().equals("12")) {
-                    sendGamingVoucherMessage(customer.getFirstName(), sponsoredRewardAds.get().getCompany(), sponsoredRewardAds.get().getVoucherValidityEndDate().split("T")[0],
+                    sendGamingVoucherMessage(customer.getFirstName(), sponsoredRewardAds.get().getCompany(), sponsoredRewardAds.get().getVoucherValidityEndDate().substring(0, 11),
                             sponsoredRewardAds.get().getCallToActionUrl(), rewardRequest.getPhoneNumber(), sponsoredRewardAds.get().getRewardText());
                 } else {
 //                    sendVoucherMessage(customer.getFirstName(), rewardRequest.getAmount(), sponsoredRewardAds.get().getCompany(),
@@ -252,7 +252,7 @@ public class RewardService {
 //                            rewardRequest.getPhoneNumber(), "s", sponsoredRewardAds.get().getRewardText());
 
                     sendVoucherMessage(customer.getFirstName(), rewardRequest.getAmount(), sponsoredRewardAds.get().getCompany(),
-                            sponsoredRewardAds.get().getVoucherValidityEndDate().split("T")[0],
+                            sponsoredRewardAds.get().getVoucherValidityEndDate().substring(0, 11),
                             voucher.getCode(), sponsoredRewardAds.get().getId(), voucher.getId(),
                             rewardRequest.getPhoneNumber(), "s", sponsoredRewardAds.get().getRewardText());
                 }
