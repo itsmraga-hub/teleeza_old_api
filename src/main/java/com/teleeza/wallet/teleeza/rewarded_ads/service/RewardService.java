@@ -953,7 +953,7 @@ public class RewardService {
 
     void sendAirtimeMessage(String firstName, BigDecimal amount, String company, String url, String phoneNumber) {
         advantaSmsApi.sendSmsNotification(
-                "Congrats " + firstName + ", You've received an " + "airtime" + " reward of Ksh " + amount + " from " +
+                "Congrats " + firstName.replace(" ", "") + ", You've received an " + "airtime" + " reward of Ksh " + amount + " from " +
                         company + ". Click to earn more " + url + ".",
                 phoneNumber
         );
@@ -961,7 +961,7 @@ public class RewardService {
 
     void sendCashMessage(String firstName, BigDecimal amount, String company, String url, String phoneNumber) {
         advantaSmsApi.sendSmsNotification(
-                "Congrats " + firstName + ", You've received a " + "cash" + " reward of Ksh " + amount + " from " +
+                "Congrats " + firstName.replace(" ", "") + ", You've received a " + "cash" + " reward of Ksh " + amount + " from " +
                         company + ". Click to earn more " + url + ".",
                 phoneNumber
         );
@@ -972,7 +972,7 @@ public class RewardService {
         if (discount_off.contains("Ksh")) {
 
             advantaSmsApi.sendSmsNotification(
-                    "Congrats " + firstName + ", Get " + reward_text + " from " +
+                    "Congrats " + firstName.replace(" ", "") + ", Get " + reward_text + " from " +
                             company + " valid till " + voucherValidityEndDate
                             +". Click tam.co.ke?v=" + voucherCode + "&c=" + adType + "&a=" + adID
                             + "&d=" + voucherID + " to redeem.",
@@ -981,7 +981,7 @@ public class RewardService {
             return;
         }
         advantaSmsApi.sendSmsNotification(
-                "Congrats " + firstName + ", You've received an eVoucher for " + discount_off + " from " +
+                "Congrats " + firstName.replace(" ", "") + ", You've received an eVoucher for " + discount_off + " from " +
                         company + " valid till " + voucherValidityEndDate
                         +". Click tam.co.ke?v=" + voucherCode + "&c=" + adType + "&a=" + adID
                         + "&d=" + voucherID + " to redeem.",
@@ -991,7 +991,7 @@ public class RewardService {
 
     void sendGamingVoucherMessage(String firstName, String company, String voucherValidityEndDate, String callToActionUrl, String phoneNumber, String reward_text) {
         advantaSmsApi.sendSmsNotification(
-                "Congrats " + firstName + ", Get " + reward_text + " from " +
+                "Congrats " + firstName.replace(" ", "") + ", Get " + reward_text + " from " +
                         company + " valid till " + voucherValidityEndDate
                         +". Click " + callToActionUrl +  " to redeem.",
                 phoneNumber
@@ -1000,7 +1000,7 @@ public class RewardService {
 
     void sendVoucherMessage(String firstName, BigDecimal amount, String company, String voucherValidityEndDate, String voucherCode, Long adID, Long voucherID, String phoneNumber, String adType, String reward_text) {
         advantaSmsApi.sendSmsNotification(
-                "Congrats " + firstName + ", Get " + reward_text + " from " +
+                "Congrats " + firstName.replace(" ", "") + ", Get " + reward_text + " from " +
                         company + " valid till " + voucherValidityEndDate
                         +". Click tam.co.ke?v=" + voucherCode + "&c=" + adType + "&a=" + adID
                         + "&d=" + voucherID + " to redeem.",
